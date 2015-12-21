@@ -4,7 +4,6 @@ defmodule SlackTopics.TopicController do
   alias SlackTopics.Topic
 
   plug :scrub_params, "topic" when action in [:create]
-  plug :action
 
   def index(conn, _params) do
     topics = Repo.all(Topic)
@@ -36,6 +35,19 @@ defmodule SlackTopics.TopicController do
         |> put_status(:unprocessable_entity)
         |> render(SlackTopics.ChangesetView, "error.json", changeset: changeset)
     end
+  end
+
+  def next(conn, %{"id" => id}) do
+    topic = Repo.get!(Topic, id)
+  end
+
+  def delete(conn, %{"id" => id}) do
+    topic = Repo.get!(Topic, id)
+    Repo.delete!(topic)
+
+    conn
+    |> put_flash(:info, "Topic successfully deleted")
+    |> redirect(to: topic_path(conn, :index))
   end
 
 end

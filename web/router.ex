@@ -17,6 +17,7 @@ defmodule SlackTopics.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", TopicController, :index
+    resources "topics", TopicController, only: [:delete]
   end
 
   scope "/api", SlackTopics do
