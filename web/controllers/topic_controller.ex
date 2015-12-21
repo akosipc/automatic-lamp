@@ -3,15 +3,13 @@ defmodule SlackTopics.TopicController do
 
   alias SlackTopics.Topic
 
-  plug :scrub_params, "topic" when action in [:create]
-
   def index(conn, _params) do
     topics = Repo.all(Topic)
     render conn, topics: topics
   end
 
-  def create(conn, %{"topic" => topic_params}) do
-    changeset = Topic.changeset(%Topic{}, topic_params)
+  def create(conn, _params) do
+    changeset = Topic.changeset(%Topic{}, conn.params)
 
     case Repo.insert(changeset) do
       {:ok, _topic} ->
@@ -23,9 +21,9 @@ defmodule SlackTopics.TopicController do
     end
   end
 
-  def update(conn, %{"id" => id, "topic" => topic_params}) do
+  def update(conn, %{"id" => id}) do
     topic = Repo.get!(Topic, id)
-    changeset = Topic.changeset(topic, topic_params)
+    changeset = Topic.changeset(topic, conn.params)
 
     case Repo.update(changeset) do
       {:ok, topic} ->

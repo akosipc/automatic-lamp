@@ -15,7 +15,7 @@ defmodule SlackTopics.Topic do
     timestamps
   end
 
-  @required_fields ~w(content channel_name team_domain token)
+  @required_fields ~w(content channel_name team_domain token user_name)
   @optional_fields ~w()
 
   @doc """
