@@ -19,7 +19,7 @@ config :slack_topics, SlackTopics.Endpoint,
 
 config :slack_topics, SlackTopics.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_evn("SECRET_KEY_BASE"),
+  url: System.get_env("DATABASE_URL"),
   pool_size: 20
 
 # Do not print debug messages in production
