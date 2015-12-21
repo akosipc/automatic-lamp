@@ -1,20 +1,22 @@
 <table class="table">
   <thead>
     <tr>
-      <th> Topic Description </th>
+      <th> Content </th>
       <th> Channel </th>
+      <th> Organization </th>
       <th> Finished </th>
-      <th> Posted At </th>
+      <th> Queued By </th>
       <th> Actions </th>
     </tr>
   </thead>
   <tbody>
     <%= for topic <- @topics do %>
       <tr>
-        <td> <%= topic.topic %> </td>
-        <td> <%= topic.channel %> </td>
+        <td> <%= topic.content %> </td>
+        <td> <%= topic.channel_name %> </td>
+        <td> <%= topic.team_domain %> </td>
         <td> <%= topic.finished %> </td>
-        <td> <%= topic.inserted_at %> </td>
+        <td> <%= topic.user_name %> </td>
         <td>
           <%= link("Delete", to: topic_path(@conn, :delete, topic), method: "delete", data: [confirm: "Are you sure? This is a destructive action"]) %>
         </td>

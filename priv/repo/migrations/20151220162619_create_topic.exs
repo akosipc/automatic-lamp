@@ -3,9 +3,13 @@ defmodule SlackTopics.Repo.Migrations.CreateTopic do
 
   def change do
     create table(:topics) do
-      add :topic,         :string
-      add :channel,       :string
-      add :organization,  :string
+      add :team_id,       :string
+      add :team_domain,   :string
+      add :channel_name,  :string
+      add :channel_id,    :string
+      add :user_id,       :string
+      add :user_name,     :string
+      add :content,       :string
       add :token,         :string
       add :finished,      :boolean
 

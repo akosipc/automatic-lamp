@@ -2,16 +2,20 @@ defmodule SlackTopics.Topic do
   use SlackTopics.Web, :model
 
   schema "topics" do
-    field :topic,           :string
-    field :channel,         :string
-    field :organization,    :string
+    field :team_id,         :string
+    field :team_domain,     :string
+    field :channel_name,    :string
+    field :channel_id,      :string
+    field :user_id,         :string
+    field :user_name,       :string
+    field :content,         :string
     field :token,           :string
-    field :finished,        :boolean, default: true
+    field :finished,        :boolean, default: false
 
     timestamps
   end
 
-  @required_fields ~w(topic channel)
+  @required_fields ~w(content channel_name team_domain token)
   @optional_fields ~w()
 
   @doc """
