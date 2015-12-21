@@ -16,11 +16,12 @@ defmodule SlackTopics.Router do
   scope "/", SlackTopics do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", TopicController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", SlackTopics do
-  #   pipe_through :api
-  # end
+  scope "/api", SlackTopics do
+    pipe_through :api
+
+    resources "topics", TopicController, only: [:index, :create, :update]
+  end
 end

@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th> Topic Description </th>
+      <th> Channel </th>
+      <th> Finished </th>
+      <th> Posted At </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for topic <- @topics do %>
+      <tr>
+        <td> <%= topic.topic %> </td>
+        <td> <%= topic.channel %> </td>
+        <td> <%= topic.finished %> </td>
+        <td> <%= topic.inserted_at %> </td>
+        <td> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
