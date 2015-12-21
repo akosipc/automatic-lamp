@@ -9,7 +9,7 @@ defmodule SlackTopics.Repo.Migrations.CreateTopic do
       add :channel_id,    :string
       add :user_id,       :string
       add :user_name,     :string
-      add :content,       :string
+      add :text ,         :string
       add :token,         :string
       add :finished,      :boolean
 

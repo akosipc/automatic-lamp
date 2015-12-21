@@ -12,7 +12,7 @@
   <tbody>
     <%= for topic <- @topics do %>
       <tr>
-        <td> <%= topic.content %> </td>
+        <td> <%= topic.text %> </td>
         <td> <%= topic.channel_name %> </td>
         <td> <%= topic.team_domain %> </td>
         <td> <%= topic.finished %> </td>

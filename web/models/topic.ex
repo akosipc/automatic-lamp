@@ -8,7 +8,7 @@ defmodule SlackTopics.Topic do
     field :channel_id,      :string
     field :user_id,         :string
     field :user_name,       :string
-    field :content,         :string
+    field :text,            :string
     field :token,           :string
     field :finished,        :boolean, default: false
 
