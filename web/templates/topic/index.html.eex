@@ -13,7 +13,11 @@
     <%= for topic <- @topics do %>
       <tr>
         <td> <%= topic.text %> </td>
-        <td> <%= topic.channel_name %> </td>
+        <td> 
+          <%= topic.channel_id %>
+          |
+          <%= topic.channel_name %>
+        </td>
         <td> <%= topic.team_domain %> </td>
         <td> <%= topic.finished %> </td>
         <td> <%= topic.user_name %> </td>

@@ -16,7 +16,7 @@ defmodule SlackTopics.Topic do
   end
 
   @required_fields ~w(text channel_name team_domain token user_name)
-  @optional_fields ~w()
+  @optional_fields ~w(channel_id team_id user_id token)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
