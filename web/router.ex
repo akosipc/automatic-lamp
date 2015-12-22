@@ -23,6 +23,6 @@ defmodule SlackTopics.Router do
   scope "/api", SlackTopics do
     pipe_through :api
 
-    resources "topics", TopicController, only: [:index, :create, :update]
+    resources "topics", V1.TopicController, only: [:index, :create, :update]
   end
 end
