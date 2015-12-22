@@ -3,8 +3,13 @@ defmodule SlackTopics.V1.TopicController do
 
   alias SlackTopics.Topic
 
-  def index(conn, _params) do
-    topics = Repo.all(Topic)
+  import Ecto.Query, only: [from: 2]
+
+  def index(conn, %{"team_id" => team_id, "channel_id" => channel_id}) do
+    query = from t in Topic,
+            where: t.team_id == ^team_id and t.channel_id == ^channel_id and t.finished == false
+
+    topics = Repo.all(query) 
     render conn, topics: topics
   end
 
